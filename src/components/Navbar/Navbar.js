@@ -8,12 +8,14 @@ function Navbar() {
       sx={{
         display: "flex",
         alignItems: "center",
-        padding: "10px 120px",
-        // border: "2px solid red", 
-        backgroundColor: "rgb(255, 255, 255)",
-        position: 'fixed', 
-        top: 0,           
-        left: 0,
+        // border: "2px solid red",
+        backgroundColor: "white",
+        position: "fixed",
+        width: "80%",
+        hight:"200px",
+        padding:"10px 0px 10px 0px",
+        zindex:1000
+
       }}
     >
       <img

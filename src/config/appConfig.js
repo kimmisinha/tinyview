@@ -40,7 +40,7 @@ const appConfig = {
       icon: Account,
       label: 'Account',
       actions: {
-        subscribe: {
+        'subscribe': {
           icon: subscribe,
           label: 'Subscribe'
         },
