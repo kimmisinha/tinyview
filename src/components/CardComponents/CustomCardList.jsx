@@ -6,7 +6,6 @@ import Images2 from "../../assets/Images/CardImages/Enjoy-the-night-header.jpg";
 import Images3 from "../../assets/Images/CardImages/Images3.jpg";
 
 function CustomCardList() {
-  // Array of image URLs
   const images = [
     Images1,
     Images2,
@@ -25,7 +24,7 @@ function CustomCardList() {
         marginTop: "60px"      }}
     >
       {images.map((image, index) => (
-        <Card key={index} sx={{ maxWidth: 345, marginLeft: '4px',marginRight:"4px", mt: 1, p: 1 }}>
+        <Card key={index} sx={{ maxWidth: 345, m:1, p: 1 }}>
           <CardMedia
             component="img"
             height="140"
