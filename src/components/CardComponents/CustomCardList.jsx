@@ -4,7 +4,7 @@ import { Favorite, Comment } from '@mui/icons-material';
 import Images1 from "../../assets/Images/CardImages/080524_Header.png";
 import Images2 from "../../assets/Images/CardImages/Enjoy-the-night-header.jpg";
 import Images3 from "../../assets/Images/CardImages/Images3.jpg";
-import BOxiamges  from "../../assets/Images/CardImages/BoxCoverImages.jpg"
+
 function CustomCardList() {
   // Array of image URLs
   const images = [
@@ -17,23 +17,23 @@ function CustomCardList() {
     <Box
       sx={{
         backgroundColor: 'rgb(252,226,154)',
-        // m: 3,
-        width:"40%",
-        
-        // display:"flex"
+        width: "40%",
+        height: "100vh", // Make the container take full viewport height
+        overflowY: "auto", // Enable vertical scrolling
+        p: 2,
+        boxSizing: 'border-box',
       }}
     >
       {images.map((image, index) => (
-        <Card key={index} sx={{ maxWidth: 345, margin: 'auto',mt:1,p:1}}>
+        <Card key={index} sx={{ maxWidth: 345, margin: 'auto', mt: 1, p: 1 }}>
           <CardMedia
             component="img"
             height="140"
             image={image}
             alt={`Background Noise ${index + 1}`}
             sx={{
-              display: "flex",
               backgroundColor: "rgb(254,248,230)",
-              zIndex: 0
+              zIndex: 0,
             }}
           />
           <CardContent>
@@ -49,7 +49,7 @@ function CustomCardList() {
               Parenting changes your ears.
             </Typography>
           </CardContent>
-          <CardContent>
+          <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
             <IconButton aria-label="add to favorites">
               <Favorite />
             </IconButton>
@@ -59,14 +59,14 @@ function CustomCardList() {
             <IconButton aria-label="comment">
               <Comment />
             </IconButton>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" sx={{ ml: 1 }}>
               1,813 Views
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" sx={{ ml: 1 }}>
               3 Comments
             </Typography>
           </CardContent>
-          <CardContent>
+          <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
             <Avatar sx={{ bgcolor: 'orange', mr: 1 }}>X</Avatar>
             <Typography variant="body2" color="text.secondary">
               x1035: So true

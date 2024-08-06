@@ -15,6 +15,7 @@ import appConfig from "../../config/appConfig";
 import user from "../../assets/Images/Useimage/UseImage.png";
 
 const drawerWidth = 350;
+const drawerHight = 50;
 
 const UserComponents = () => {
   const [openDropdowns, setOpenDropdowns] = useState({});
@@ -28,11 +29,11 @@ const UserComponents = () => {
 
   return (
     <Box
-      sx={{ display: "flex", backgroundColor: "rgb(254,248,230)", zIndex: 0 }}
+      sx={{ display: "flex", backgroundColor: "rgb(254,247,221)", zIndex: 0, height: drawerHight }}
     >
-      <Box style={{ backgroundColor: "rgb(254,248,230)", width: drawerWidth }}>
+      <Box style={{ backgroundColor: "rgb(254,247,221)", width: drawerWidth }}>
         <Toolbar />
-        <Divider />
+        <Divider sx={{ width: "100%", borderColor: "white" }} />
         <List>
           <ListItem>
             <Box sx={{ textAlign: "center" }}>
@@ -57,7 +58,7 @@ const UserComponents = () => {
               <Typography
                 variant="body2"
                 fontWeight="bold"
-                sx={{ paddingTop: 3, color: "rgb(61,61,61)", fontWeight: 700 }}
+                sx={{ paddingTop: 1, color: "rgb(61,61,61)", fontWeight: 700, fontSize: "17px" }}
               >
                 Sign In
               </Typography>
@@ -71,17 +72,15 @@ const UserComponents = () => {
                 paddingLeft: 6,
               }}
             >
-              <span style={{ color: "black" }}>New user?</span>
-              <span style={{ color: "red" }}> Sign Up</span>
+              <span style={{ color: "rgb(98,98,98)" }}>New user?</span>
+              <span style={{ color: "red", textDecoration: "underline" }}> Sign Up</span>
             </Typography>
           </ListItemButton>
         </List>
         <List>
           {Object.keys(appConfig.UsersDetails).map((key) => (
             <ListItem key={key}>
-              <ListItemButton
-                sx={{ "&:hover": { bgcolor: "rgb(255,255,255)" } }}
-              >
+              <ListItemButton sx={{ "&:hover": { bgcolor: "rgb(255,255,255)" } }}>
                 <ListItemIcon>
                   <Box sx={{ width: 32, height: 32, paddingLeft: 4 }}>
                     <img
@@ -96,8 +95,8 @@ const UserComponents = () => {
             </ListItem>
           ))}
         </List>
-        <Divider />
-        <List>
+        <Divider sx={{ width: "100%", borderColor: "white" }} />
+        <List sx={{ paddingTop: "50px" }}>
           {Object.keys(appConfig.UsersAccount).map((key) => (
             <React.Fragment key={key}>
               <ListItem>
@@ -106,13 +105,13 @@ const UserComponents = () => {
                     "&:hover": { bgcolor: "rgb(255,255,255)" },
                     mb: key === "allseries" ? 2 : 0,
                     display: 'flex',
-                    justifyContent: 'space-between', 
+                    justifyContent: 'space-between',
                   }}
                   onClick={() => handleToggleDropdown(key)}
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <ListItemIcon>
-                      <Box sx={{ width: 32, height: 32 ,paddingLeft: 4 }}>
+                      <Box sx={{ width: 32, height: 32, paddingLeft: 4 }}>
                         <img
                           src={appConfig.UsersAccount[key].icon}
                           alt={appConfig.UsersAccount[key].label}
@@ -122,51 +121,48 @@ const UserComponents = () => {
                     </ListItemIcon>
                     <ListItemText primary={appConfig.UsersAccount[key].label} />
                   </Box>
-                  <ExpandMoreIcon /> {/* Add arrow icon here */}
+                  {["account", "settings", "legal"].includes(key) && <ExpandMoreIcon />}
                 </ListItemButton>
               </ListItem>
-              <Collapse in={openDropdowns[key]} timeout="auto" unmountOnExit>
-                <List component="div" sx={{ pl: 4 }}>
-                  {key === "subscribe" && (
-                    <ListItemButton>
-                      <ListItemText primary="Subscribe" />
-                    </ListItemButton>
-                  )}
-                  {key === "account" && (
-                    <>
-                      <ListItemButton>
-                        <ListItemText primary="Invite Friends" />
-                      </ListItemButton>
-                      <ListItemButton>
-                        <ListItemText primary="See Friends" />
-                      </ListItemButton>
-                      <ListItemButton>
-                        <ListItemText primary="Friend Requests" />
-                      </ListItemButton>
-                    </>
-                  )}
-                  {key === "settings" && (
-                    <>
-                      <ListItemButton>
-                        <ListItemText primary="Settings" />
-                      </ListItemButton>
-                      <ListItemButton>
-                        <ListItemText primary="Manage Alerts" />
-                      </ListItemButton>
-                    </>
-                  )}
-                  {key === "legal" && (
-                    <>
-                      <ListItemButton>
-                        <ListItemText primary="Terms of Use" />
-                      </ListItemButton>
-                      <ListItemButton>
-                        <ListItemText primary="Privacy Details" />
-                      </ListItemButton>
-                    </>
-                  )}
-                </List>
-              </Collapse>
+              {["account", "settings", "legal"].includes(key) && (
+                <Collapse in={openDropdowns[key]} timeout="auto" unmountOnExit>
+                  <List component="div" sx={{ pl: 4 }}>
+                    {key === "account" && (
+                      <>
+                        <ListItemButton>
+                          <ListItemText primary="Invite Friends" />
+                        </ListItemButton>
+                        <ListItemButton>
+                          <ListItemText primary="See Friends" />
+                        </ListItemButton>
+                        <ListItemButton>
+                          <ListItemText primary="Friend Requests" />
+                        </ListItemButton>
+                      </>
+                    )}
+                    {key === "settings" && (
+                      <>
+                        <ListItemButton>
+                          <ListItemText primary="Settings" />
+                        </ListItemButton>
+                        <ListItemButton>
+                          <ListItemText primary="Manage Alerts" />
+                        </ListItemButton>
+                      </>
+                    )}
+                    {key === "legal" && (
+                      <>
+                        <ListItemButton>
+                          <ListItemText primary="Terms of Use" />
+                        </ListItemButton>
+                        <ListItemButton>
+                          <ListItemText primary="Privacy Details" />
+                        </ListItemButton>
+                      </>
+                    )}
+                  </List>
+                </Collapse>
+              )}
             </React.Fragment>
           ))}
         </List>

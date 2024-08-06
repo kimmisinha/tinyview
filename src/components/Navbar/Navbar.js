@@ -8,7 +8,7 @@ function Navbar() {
       sx={{
         display: "flex",
         alignItems: "center",
-        // border: "2px solid red",
+        border: "2px solid red",
         backgroundColor: "white",
         position: "fixed",
         width: "80%",
