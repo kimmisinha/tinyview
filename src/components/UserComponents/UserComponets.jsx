@@ -49,12 +49,13 @@ const UserComponents = () => {
                   height: 100,
                   margin: "0 auto",
                   color: "rgb(61,61,61)",
+                  paddingLeft: 6,
                 }}
               />
               <Typography
                 variant="h6"
                 fontWeight="bold"
-                sx={{ mt: 1, color: "rgb(61,61,61)" }}
+                sx={{ mt: 1, color: "rgb(61,61,61)",  paddingLeft: 6, }}
               >
                 Guest User
               </Typography>
@@ -62,10 +63,11 @@ const UserComponents = () => {
                 variant="body2"
                 fontWeight="bold"
                 sx={{
-                  paddingTop: 1,
+                  // paddingTop: 1,
                   color: "rgb(61,61,61)",
                   fontWeight: 700,
                   fontSize: "17px",
+                  paddingLeft: 6,
                 }}
               >
                 Sign In
@@ -75,7 +77,7 @@ const UserComponents = () => {
           <ListItemButton>
             <Typography
               variant="body2"
-              sx={{ fontSize: "1.0rem" }}
+              sx={{ fontSize: "1.0rem" ,paddingLeft: 6,}}
             >
               <span style={{ color: "rgb(98,98,98)" }}>New user?</span>
               <span style={{ color: "red", textDecoration: "underline" }}>

@@ -22,8 +22,7 @@ function CustomCardList() {
         overflowY: "auto", 
         p: 2,
         boxSizing: 'border-box',
-marginTop:"20px"
-      }}
+        marginTop: "60px"      }}
     >
       {images.map((image, index) => (
         <Card key={index} sx={{ maxWidth: 345, marginLeft: '4px',marginRight:"4px", mt: 1, p: 1 }}>

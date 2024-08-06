@@ -29,9 +29,16 @@ const array = [
 
 function AllSeriesComponent() {
   return (
-    <Box sx={{ backgroundColor: "rgb(250,243,218)", padding: "20px", height: "100vh", overflowY: "auto",marginTop:"20px" }}>
+    <Box sx={{ backgroundColor: "rgb(250,243,218)", padding: "20px", height: "100vh",   overflow: "scroll"     , marginTop: "60px" }}>
+      <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'rgb(61,61,61)' }}>
+        New to Tinyview?
+      </Typography>
+      <Typography variant="body2" sx={{ color: 'Black' }}>
+        Here are a few links to get you started!
+      </Typography>
+
       {array.map((item, index) => (
-        <Card key={index} sx={{ width: 300, margin: "20px auto", borderRadius: "5px" }}>
+        <Card key={index} sx={{ width: 320, margin: "20px auto", borderRadius: "5px" }}>
           <CardMedia
             component="img"
             height="140"
