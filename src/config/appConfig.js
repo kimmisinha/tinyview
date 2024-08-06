@@ -40,10 +40,20 @@ const appConfig = {
       icon: Account,
       label: 'Account',
       actions: {
-        'subscribe': {
+        subscribe: {
           icon: subscribe,
           label: 'Subscribe'
-        },
+        }
+      }
+    },
+    influencePoints: {
+      icon: Influence,
+      label: 'Influence Points'
+    },
+    friends: {
+      icon: Friends,
+      label: 'Friends',
+      actions: {
         inviteFriends: {
           icon: inviteFriends,
           label: 'Invite Friends'
@@ -57,14 +67,6 @@ const appConfig = {
           label: 'Friend Requests'
         }
       }
-    },
-    influencePoints: {
-      icon: Influence,
-      label: 'Influence Points'
-    },
-    friends: {
-      icon: Friends,
-      label: 'Friends'
     },
     settings: {
       icon: Settings,

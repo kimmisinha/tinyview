@@ -17,15 +17,16 @@ function CustomCardList() {
     <Box
       sx={{
         backgroundColor: 'rgb(252,226,154)',
-        width: "40%",
-        height: "100vh", // Make the container take full viewport height
-        overflowY: "auto", // Enable vertical scrolling
+        width: "37%",
+        height: "100vh", 
+        overflowY: "auto", 
         p: 2,
         boxSizing: 'border-box',
+marginTop:"20px"
       }}
     >
       {images.map((image, index) => (
-        <Card key={index} sx={{ maxWidth: 345, margin: 'auto', mt: 1, p: 1 }}>
+        <Card key={index} sx={{ maxWidth: 345, marginLeft: '4px',marginRight:"4px", mt: 1, p: 1 }}>
           <CardMedia
             component="img"
             height="140"

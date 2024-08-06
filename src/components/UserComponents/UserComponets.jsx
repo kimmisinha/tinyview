@@ -15,7 +15,6 @@ import appConfig from "../../config/appConfig";
 import user from "../../assets/Images/Useimage/UseImage.png";
 
 const drawerWidth = 350;
-const drawerHight = 50;
 
 const UserComponents = () => {
   const [openDropdowns, setOpenDropdowns] = useState({});
@@ -29,9 +28,14 @@ const UserComponents = () => {
 
   return (
     <Box
-      sx={{ display: "flex", backgroundColor: "rgb(254,247,221)", zIndex: 0, height: drawerHight }}
+      sx={{
+        display: "flex",
+        backgroundColor: "rgb(254,247,221)",
+        zIndex: 0,
+        // height: "100vh", // Adjust height as needed
+      }}
     >
-      <Box style={{ backgroundColor: "rgb(254,247,221)", width: drawerWidth }}>
+      <Box sx={{ backgroundColor: "rgb(254,247,221)", width: drawerWidth }}>
         <Toolbar />
         <Divider sx={{ width: "100%", borderColor: "white" }} />
         <List>
@@ -41,7 +45,6 @@ const UserComponents = () => {
                 alt="Guest User"
                 src={user}
                 sx={{
-                  paddingLeft: 6,
                   width: 100,
                   height: 100,
                   margin: "0 auto",
@@ -51,14 +54,19 @@ const UserComponents = () => {
               <Typography
                 variant="h6"
                 fontWeight="bold"
-                sx={{ mt: 1, paddingLeft: 6, color: "rgb(61,61,61)" }}
+                sx={{ mt: 1, color: "rgb(61,61,61)" }}
               >
                 Guest User
               </Typography>
               <Typography
                 variant="body2"
                 fontWeight="bold"
-                sx={{ paddingTop: 1, color: "rgb(61,61,61)", fontWeight: 700, fontSize: "17px" }}
+                sx={{
+                  paddingTop: 1,
+                  color: "rgb(61,61,61)",
+                  fontWeight: 700,
+                  fontSize: "17px",
+                }}
               >
                 Sign In
               </Typography>
@@ -67,22 +75,23 @@ const UserComponents = () => {
           <ListItemButton>
             <Typography
               variant="body2"
-              sx={{
-                fontSize: "1.0rem",
-                paddingLeft: 6,
-              }}
+              sx={{ fontSize: "1.0rem" }}
             >
               <span style={{ color: "rgb(98,98,98)" }}>New user?</span>
-              <span style={{ color: "red", textDecoration: "underline" }}> Sign Up</span>
+              <span style={{ color: "red", textDecoration: "underline" }}>
+                {" "}Sign Up
+              </span>
             </Typography>
           </ListItemButton>
         </List>
         <List>
           {Object.keys(appConfig.UsersDetails).map((key) => (
             <ListItem key={key}>
-              <ListItemButton sx={{ "&:hover": { bgcolor: "rgb(255,255,255)" } }}>
+              <ListItemButton
+                sx={{ "&:hover": { bgcolor: "rgb(255,255,255)" } }}
+              >
                 <ListItemIcon>
-                  <Box sx={{ width: 32, height: 32, paddingLeft: 4 }}>
+                  <Box sx={{ width: 32, height: 32 }}>
                     <img
                       src={appConfig.UsersDetails[key].icon}
                       alt={appConfig.UsersDetails[key].label}
@@ -104,14 +113,14 @@ const UserComponents = () => {
                   sx={{
                     "&:hover": { bgcolor: "rgb(255,255,255)" },
                     mb: key === "allseries" ? 2 : 0,
-                    display: 'flex',
-                    justifyContent: 'space-between',
+                    display: "flex",
+                    justifyContent: "space-between",
                   }}
                   onClick={() => handleToggleDropdown(key)}
                 >
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
                     <ListItemIcon>
-                      <Box sx={{ width: 32, height: 32, paddingLeft: 4 }}>
+                      <Box sx={{ width: 32, height: 32 }}>
                         <img
                           src={appConfig.UsersAccount[key].icon}
                           alt={appConfig.UsersAccount[key].label}
@@ -121,31 +130,42 @@ const UserComponents = () => {
                     </ListItemIcon>
                     <ListItemText primary={appConfig.UsersAccount[key].label} />
                   </Box>
-                  {["account", "settings", "legal"].includes(key) && <ExpandMoreIcon />}
+                  {["account", "settings", "legal", "friends"].includes(key) && (
+                    <ExpandMoreIcon />
+                  )}
                 </ListItemButton>
               </ListItem>
-              {["account", "settings", "legal"].includes(key) && (
+              {["account", "settings", "legal", "friends"].includes(key) && (
                 <Collapse in={openDropdowns[key]} timeout="auto" unmountOnExit>
                   <List component="div" sx={{ pl: 4 }}>
                     {key === "account" && (
                       <>
                         <ListItemButton>
-                          <ListItemText primary="Invite Friends" />
-                        </ListItemButton>
-                        <ListItemButton>
-                          <ListItemText primary="See Friends" />
-                        </ListItemButton>
-                        <ListItemButton>
-                          <ListItemText primary="Friend Requests" />
+                          <ListItemIcon>
+                            <Box sx={{ width: 24, height: 24 }}>
+                              <img
+                                src={appConfig.UsersAccount.account.actions.subscribe.icon}
+                                alt={appConfig.UsersAccount.account.actions.subscribe.label}
+                                style={{ width: "100%", height: "100%" }}
+                              />
+                            </Box>
+                          </ListItemIcon>
+                          <ListItemText primary="Subscribe" />
                         </ListItemButton>
                       </>
                     )}
                     {key === "settings" && (
                       <>
                         <ListItemButton>
-                          <ListItemText primary="Settings" />
-                        </ListItemButton>
-                        <ListItemButton>
+                          <ListItemIcon>
+                            <Box sx={{ width: 24, height: 24 }}>
+                              <img
+                                src={appConfig.UsersAccount.settings.actions.manageAlerts.icon}
+                                alt={appConfig.UsersAccount.settings.actions.manageAlerts.label}
+                                style={{ width: "100%", height: "100%" }}
+                              />
+                            </Box>
+                          </ListItemIcon>
                           <ListItemText primary="Manage Alerts" />
                         </ListItemButton>
                       </>
@@ -153,10 +173,56 @@ const UserComponents = () => {
                     {key === "legal" && (
                       <>
                         <ListItemButton>
-                          <ListItemText primary="Terms of Use" />
+                          <ListItemIcon>
+                            <Box sx={{ width: 24, height: 24 }}>
+                              <img
+                                src={appConfig.UsersAccount.legal.actions.termsAndConditions.icon}
+                                alt={appConfig.UsersAccount.legal.actions.termsAndConditions.label}
+                                style={{ width: "100%", height: "100%" }}
+                              />
+                            </Box>
+                          </ListItemIcon>
+                          <ListItemText primary="Terms and Conditions" />
                         </ListItemButton>
                         <ListItemButton>
-                          <ListItemText primary="Privacy Details" />
+                          <ListItemIcon>
+                            <Box sx={{ width: 24, height: 24 }}>
+                              <img
+                                src={appConfig.UsersAccount.legal.actions.privacyPolicy.icon}
+                                alt={appConfig.UsersAccount.legal.actions.privacyPolicy.label}
+                                style={{ width: "100%", height: "100%" }}
+                              />
+                            </Box>
+                          </ListItemIcon>
+                          <ListItemText primary="Privacy Policy" />
+                        </ListItemButton>
+                      </>
+                    )}
+                    {key === "friends" && (
+                      <>
+                        <ListItemButton>
+                          <ListItemIcon>
+                            <Box sx={{ width: 24, height: 24 }}>
+                              <img
+                                src={appConfig.UsersAccount.friends.actions.inviteFriends.icon}
+                                alt={appConfig.UsersAccount.friends.actions.inviteFriends.label}
+                                style={{ width: "100%", height: "100%" }}
+                              />
+                            </Box>
+                          </ListItemIcon>
+                          <ListItemText primary="Invite Friends" />
+                        </ListItemButton>
+                        <ListItemButton>
+                          <ListItemIcon>
+                            <Box sx={{ width: 24, height: 24 }}>
+                              <img
+                                src={appConfig.UsersAccount.friends.actions.seeFriends.icon}
+                                alt={appConfig.UsersAccount.friends.actions.seeFriends.label}
+                                style={{ width: "100%", height: "100%" }}
+                              />
+                            </Box>
+                          </ListItemIcon>
+                          <ListItemText primary="See Friends" />
                         </ListItemButton>
                       </>
                     )}
@@ -166,12 +232,6 @@ const UserComponents = () => {
             </React.Fragment>
           ))}
         </List>
-      </Box>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
-      >
-        <Toolbar />
       </Box>
     </Box>
   );

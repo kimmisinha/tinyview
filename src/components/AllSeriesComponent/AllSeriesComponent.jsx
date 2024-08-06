@@ -29,7 +29,7 @@ const array = [
 
 function AllSeriesComponent() {
   return (
-    <Box sx={{ backgroundColor: "rgb(250,243,218)", padding: "20px", height: "100vh", overflowY: "auto" }}>
+    <Box sx={{ backgroundColor: "rgb(250,243,218)", padding: "20px", height: "100vh", overflowY: "auto",marginTop:"20px" }}>
       {array.map((item, index) => (
         <Card key={index} sx={{ width: 300, margin: "20px auto", borderRadius: "5px" }}>
           <CardMedia
