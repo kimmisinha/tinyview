@@ -13,7 +13,7 @@ import Collapse from "@mui/material/Collapse";
 import appConfig from "../../config/appConfig";
 import user from "../../assets/Images/Useimage/UseImage.png";
 
-const drawerWidth = 310;
+const drawerWidth = 400;
 
 const UserComponents = () => {
   const [openDropdowns, setOpenDropdowns] = useState({});
@@ -26,8 +26,8 @@ const UserComponents = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", backgroundColor: "rgb(254,248,230)" }}>
-      <Box style={{ backgroundColor: "rgb(254,248,230)", zindex: -1000 }}>
+    <Box sx={{ display: "flex", backgroundColor: "rgb(254,248,230)" ,zIndex:0}}>
+      <Box style={{ backgroundColor: "rgb(254,248,230)",  }}>
         <Toolbar />
         <Divider />
         <List>
@@ -54,7 +54,7 @@ const UserComponents = () => {
                   <img
                     src={appConfig.UsersDetails[key].icon}
                     alt={appConfig.UsersDetails[key].label}
-                    style={{ width: "24px", height: "24px" }} // Fixed size for images
+                    style={{ width: "24px", height: "24px" }} 
                   />
                 </ListItemIcon>
                 <ListItemText primary={appConfig.UsersDetails[key].label} />
@@ -75,7 +75,7 @@ const UserComponents = () => {
                     <img
                       src={appConfig.UsersAccount[key].icon}
                       alt={appConfig.UsersAccount[key].label}
-                      style={{ width: "24px", height: "24px" }} // Fixed size for images
+                      style={{ width: "24px", height: "24px" }} 
                     />
                   </ListItemIcon>
                   <ListItemText primary={appConfig.UsersAccount[key].label} />

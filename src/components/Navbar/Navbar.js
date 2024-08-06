@@ -14,7 +14,7 @@ function Navbar() {
         width: "80%",
         hight:"200px",
         padding:"10px 0px 10px 0px",
-        zindex:1000
+        zIndex:10
 
       }}
     >
