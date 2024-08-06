@@ -1,22 +1,30 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Typography, IconButton, Avatar } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, IconButton, Avatar, Box } from '@mui/material';
 import { Favorite, Comment } from '@mui/icons-material';
 import Images1 from "../../assets/Images/CardImages/080524_Header.png";
 import Images2 from "../../assets/Images/CardImages/Enjoy-the-night-header.jpg";
 import Images3 from "../../assets/Images/CardImages/Images3.jpg";
-
+import BOxiamges  from "../../assets/Images/CardImages/BoxCoverImages.jpg"
 function CustomCardList() {
   // Array of image URLs
   const images = [
     Images1,
     Images2,
-    Images3
+    Images3,
   ];
 
   return (
-    <div>
+    <Box
+      sx={{
+        backgroundColor: 'rgb(252,226,154)',
+        // m: 3,
+        width:"40%",
+        
+        // display:"flex"
+      }}
+    >
       {images.map((image, index) => (
-        <Card key={index} sx={{ maxWidth: 345, margin: 'auto', mt: 5 }}>
+        <Card key={index} sx={{ maxWidth: 345, margin: 'auto',mt:1,p:1}}>
           <CardMedia
             component="img"
             height="140"
@@ -66,7 +74,7 @@ function CustomCardList() {
           </CardContent>
         </Card>
       ))}
-    </div>
+    </Box>
   );
 }
 

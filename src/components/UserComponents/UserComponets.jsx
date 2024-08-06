@@ -106,7 +106,7 @@ const UserComponents = () => {
                     "&:hover": { bgcolor: "rgb(255,255,255)" },
                     mb: key === "allseries" ? 2 : 0,
                     display: 'flex',
-                    justifyContent: 'space-between', // Add this to space out items
+                    justifyContent: 'space-between', 
                   }}
                   onClick={() => handleToggleDropdown(key)}
                 >
