@@ -1,16 +1,15 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Typography, IconButton, Avatar, Box } from '@mui/material';
-import { Favorite, Comment } from '@mui/icons-material';
-import Images1 from "../../assets/Images/CardImages/080524_Header.png";
-import Images2 from "../../assets/Images/CardImages/Enjoy-the-night-header.jpg";
-import Images3 from "../../assets/Images/CardImages/Images3.jpg";
+import { Card, CardContent, CardMedia, Typography, IconButton, Avatar, Box, Divider, Button } from '@mui/material';
+import { Favorite, Comment, Share } from '@mui/icons-material';
+import quote from "../../assets/Images/CardImages/quote.png";
+import Images4 from "../../assets/Images/CardImages/image-6.jpeg";
+import heart from "../../assets/Images/CardImages/heart.png";
+import supply from "../../assets/Images/CardImages/supply.png";
+import bagel from "../../assets/Images/CardImages/bagel.png";
+import AvatarImages from "../../assets/Images/CardImages/avtariamges.jpg";
 
 function CustomCardList() {
-  const images = [
-    Images1,
-    Images2,
-    Images3,
-  ];
+  const images = [Images4];
 
   return (
     <Box
@@ -19,16 +18,19 @@ function CustomCardList() {
         width: "37%",
         height: "100vh", 
         overflowY: "auto", 
-        p: 2,
         boxSizing: 'border-box',
-        marginTop: "60px"      }}
+        marginTop: "60px",
+        margin: "60px 0px 0px 0px",
+        padding: "none"
+      }}
     >
       {images.map((image, index) => (
-        <Card key={index} sx={{ maxWidth: 345, m:1, p: 1 }}>
+        <Card key={index} sx={{ m: 2 }}>
           <CardMedia
             component="img"
-            height="140"
             image={image}
+            width="100%"
+            height="100%"
             alt={`Background Noise ${index + 1}`}
             sx={{
               backgroundColor: "rgb(254,248,230)",
@@ -36,40 +38,50 @@ function CustomCardList() {
             }}
           />
           <CardContent>
-            <Typography variant="h5" component="div">
-              "Background Noise"
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+              <Avatar alt="User Avatar" src={AvatarImages} />
+              <Typography variant="body1" sx={{ fontWeight: 'bold', ml: 1 }}>Fowl Language</Typography>
+              <Button variant="outlined" sx={{ ml: 'auto', borderColor: 'black', color: 'black', bgcolor: 'white' }}>
+               Series Home
+              </Button>
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'start', my: 1 }}>
+              <img src={quote} alt="Quote" style={{ width: '10%', height: 'auto' }} />
+            </Box>
+            <Typography 
+              variant="body1" 
+              sx={{ fontStyle: 'italic', fontWeight: 'bold', color: 'rgb(232,232,232)',  }}
+            >
+              Bonus panel testing 2
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Aug 4, 2024
+            <Typography variant="body2" sx={{ color: 'black', mt: 1,  }}>
+              Wed, Jul 17, 2024 • 3:45 PM
             </Typography>
-          </CardContent>
-          <CardContent>
-            <Typography variant="body2" color="text.secondary" component="p">
-              Parenting changes your ears.
-            </Typography>
-          </CardContent>
-          <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
-            <IconButton aria-label="add to favorites">
-              <Favorite />
-            </IconButton>
-            <Typography variant="body2" color="text.secondary">
-              120
-            </Typography>
-            <IconButton aria-label="comment">
-              <Comment />
-            </IconButton>
-            <Typography variant="body2" color="text.secondary" sx={{ ml: 1 }}>
-              1,813 Views
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ ml: 1 }}>
-              3 Comments
-            </Typography>
-          </CardContent>
-          <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
-            <Avatar sx={{ bgcolor: 'orange', mr: 1 }}>X</Avatar>
-            <Typography variant="body2" color="text.secondary">
-              x1035: So true
-            </Typography>
+            <Divider />
+            <Box sx={{ display: 'flex', alignItems: 'center', my: 1 }}>
+              <img src={heart} alt="Heart" style={{ width: '24px', height: '24px' }} />
+              <img src={bagel} alt="Bagel" style={{ width: '24px', height: '24px', marginLeft: '8px' }} />
+              <img src={supply} alt="Supply" style={{ width: '24px', height: '24px', marginLeft: '8px' }} />
+              <Typography variant="body2" sx={{ mx: 'auto' }}>151 Views</Typography>
+              <Typography variant="body2" sx={{ ml: 'auto' }}>7 Comments</Typography>
+            </Box>
+            <Divider />
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', my: 1 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Favorite />
+                <Typography variant="body2" sx={{ ml: 1 }}>Like</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Comment />
+                <Typography variant="body2" sx={{ ml: 1 }}>Comment</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Share />
+                <Typography variant="body2" sx={{ ml: 1 }}>Share</Typography>
+              </Box>
+            </Box>
+            <Divider />
+            <Typography variant="body2" sx={{ mt: 1}}>See previous comments...</Typography>
           </CardContent>
         </Card>
       ))}
