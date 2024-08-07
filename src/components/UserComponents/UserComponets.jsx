@@ -40,7 +40,7 @@ const UserComponents = () => {
     >
       <Box sx={{ backgroundColor: "rgb(254,247,221)", width: drawerWidth }}>
         <Toolbar />
-        <Divider sx={{ width: "100%", borderColor: "white" }} />
+        {/* <Divider sx={{ width: "100%", borderColor: "white" }} /> */}
         <List>
           <ListItem>
             <Box>

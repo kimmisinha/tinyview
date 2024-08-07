@@ -20,9 +20,9 @@ import AvatarImages2 from "../../assets/Images/CustomCardList/product-plug-profi
 import AvatarImages3 from "../../assets/Images/CustomCardList/fowl-language-profile.jpg";
 import Images2 from "../../assets/Images/CustomCardList/onions_preview .jpg";
 import Images3 from "../../assets/Images/CustomCardList/Fresh-Air-and-Sun-header.jpg";
-
-import TinyViewimages from "../../assets/Images/TinyView/tinyview-fb-cover.jpg";
+import Tinyview from "../../assets/Images/TinyView/tinyview-fb-cover.jpg";
 import Tinyviewsavtar from "../../assets/Images/TinyView/profiles.jpg";
+
 function CustomCardList() {
   const cardsData = [
     {
@@ -72,19 +72,99 @@ function CustomCardList() {
         maxHeight: "100vh",
       }}
     >
-      <CardMedia
-        component="img"
-        image={TinyViewimages}
-        sx={{
-          padding: "0px",
-          objectFit: "fill",
-          backgroundColor: "rgb(254,248,230)",
-          zIndex: 0,
-        }}
-      />
-      <CardContent></CardContent>
-      <CardMedia />
-      {/* cardcontent */}
+      <Card>
+        <CardMedia
+          component="img"
+          image={Tinyview}
+          sx={{
+            padding: "0px",
+            objectFit: "fill",
+            backgroundColor: "rgb(254,248,230)",
+            zIndex: 0,
+          }}
+        />
+        <CardMedia />
+
+        <CardContent>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              margin: "2px",
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "center", margin: "2px" }}>
+              <Avatar alt="Tinyview Avatar" src={Tinyviewsavtar} />
+              <Box>
+                <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                  Tinyview Comics
+                </Typography>
+                <Typography variant="body2">
+                  31.14M Views &nbsp; | &nbsp; 80.3K Followers
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+          <Divider sx={{ my: 1 }} />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              my: 1,
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Share />
+              <Typography variant="body2" sx={{ ml: 1 }}>
+                Share
+              </Typography>
+            </Box>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <img
+                src={heart}
+                alt="Heart"
+                style={{ width: "24px", height: "24px" }}
+              />
+              <img
+                src={bagel}
+                alt="Bagel"
+                style={{ width: "24px", height: "24px", marginLeft: "8px" }}
+              />
+              <img
+                src={supply}
+                alt="Supply"
+                style={{ width: "24px", height: "24px", marginLeft: "8px" }}
+              />
+            </Box>
+          </Box>
+          <Divider sx={{ my: 1 }} />
+          <Typography variant="body2">
+            Daily comics! Whether you're a kid or a grown-up, a science fanatic
+            or a political junkie, there's something for everyone on Tinyview.
+          </Typography>
+        </CardContent>
+      </Card>
+
+      <Card sx={{ m: 2 }}>
+        <CardContent sx={{ width: 434, height: 100 }}>
+          <Typography
+            variant="h6"
+            sx={{ color: "#3D3D3D", fontSize: "18px", fontWeight: "700" }}
+          >
+            What's New
+          </Typography>
+          <Typography variant="body2" sx={{ mt: 1}}>
+            You can now receive alerts via email.
+          </Typography>
+
+          <Button sx={{ bgcolor: "rgb(223,71,75)", color: "white", mt: 1 }}>
+            Manage Alerts
+          </Button>
+        </CardContent>
+      </Card>
+
       {cardsData.map((card, index) => (
         <Card key={index} sx={{ m: 2 }}>
           <CardMedia
@@ -133,7 +213,7 @@ function CustomCardList() {
             >
               {card.description}
             </Typography>
-
+            <Divider />
             <Box sx={{ display: "flex", alignItems: "center", my: 1 }}>
               <img
                 src={card.heart}
