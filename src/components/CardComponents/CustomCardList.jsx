@@ -1,36 +1,71 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Typography, IconButton, Avatar, Box, Divider, Button } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Avatar, Box, Divider, Button } from '@mui/material';
 import { Favorite, Comment, Share } from '@mui/icons-material';
-import quote from "../../assets/Images/CardImages/quote.png";
-import Images4 from "../../assets/Images/CardImages/image-6.jpeg";
-import heart from "../../assets/Images/CardImages/heart.png";
-import supply from "../../assets/Images/CardImages/supply.png";
-import bagel from "../../assets/Images/CardImages/bagel.png";
-import AvatarImages from "../../assets/Images/CardImages/avtariamges.jpg";
+import quote from "../../assets/Images/CustomCardList/quote.png";
+import Images1 from "../../assets/Images/CustomCardList/image-6.jpeg";
+import heart from "../../assets/Images/CustomCardList/heart.png";
+import supply from "../../assets/Images/CustomCardList/supply.png";
+import bagel from "../../assets/Images/CustomCardList/bagel.png";
+import AvatarImages1 from "../../assets/Images/CustomCardList/avtariamges.jpg";
+import AvatarImages2 from "../../assets/Images/CustomCardList/product-plug-profile.jpg";
+import AvatarImages3 from "../../assets/Images/CustomCardList/fowl-language-profile.jpg";
+import Images2 from "../../assets/Images/CustomCardList/avtariamges.jpg";
+import Images3 from "../../assets/Images/CustomCardList/Fresh-Air-and-Sun-header.jpg";
 
 function CustomCardList() {
-  const images = [Images4];
+  const cardsData = [
+    {
+      image: Images1,
+      quote: quote,
+      heart: heart,
+      bagel: bagel,
+      supply: supply,
+      avatar: AvatarImages1,
+      heading: "Fowl Language",
+      description: "Bonus panel testing 2"
+    },
+    {
+      image: Images2,
+      quote: quote,
+      heart: heart,
+      bagel: bagel,
+      supply: supply,
+      avatar: AvatarImages2,
+      heading: "Episode 341",
+      description: "Frankie's rid of her bully for now and can spend a little time enjoying the great outdoors. Surely nothing could go wrong with that, right?"
+    },
+    {
+      image: Images3,
+      quote: quote,
+      heart: heart,
+      bagel: bagel,
+      supply: supply,
+      avatar: AvatarImages3,
+      heading: "Fowl Language: Tweenage Wasteland",
+      description: "Hey guys! My first new book in years, Tweenage Wasteland, comes out next week! You’re going to find it terribly relatable if your kids are going through the tween-teen years. And if your kids are still little, you can get a sneak preview of what’s coming!I REALLY need to get more preorders in to Amazon and everywhere else that sells books, though. For reasons I don’t entirely understand, these preorders are extremely important for the success of any book. They let Amazon and other booksellers know my little book exists, so they’ll actually stock and promote it.So, PLEASE, go preorder it now! Either at the link below or wherever you buy books. It’ll make a huge difference.Thanks SO much, it means the world to me! ❤️"
+    }
+  ];
 
   return (
     <Box
       sx={{
         backgroundColor: 'rgb(252,226,154)',
         width: "37%",
-        height: "100vh", 
-        overflowY: "auto", 
+        height: "100vh",
+        overflowY: "auto",
         boxSizing: 'border-box',
         marginTop: "60px",
         margin: "60px 0px 0px 0px",
         padding: "none"
       }}
     >
-      {images.map((image, index) => (
+      {cardsData.map((card, index) => (
         <Card key={index} sx={{ m: 2 }}>
           <CardMedia
             component="img"
-            image={image}
+            image={card.image}
             width="100%"
-            height="100%"
+            height="auto"
             alt={`Background Noise ${index + 1}`}
             sx={{
               backgroundColor: "rgb(254,248,230)",
@@ -39,29 +74,29 @@ function CustomCardList() {
           />
           <CardContent>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-              <Avatar alt="User Avatar" src={AvatarImages} />
-              <Typography variant="body1" sx={{ fontWeight: 'bold', ml: 1 }}>Fowl Language</Typography>
+              <Avatar alt="User Avatar" src={card.avatar} />
+              <Typography variant="body1" sx={{ fontWeight: 'bold', ml: 1 }}>{card.heading}</Typography>
               <Button variant="outlined" sx={{ ml: 'auto', borderColor: 'black', color: 'black', bgcolor: 'white' }}>
-               Series Home
+                Series Home
               </Button>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'start', my: 1 }}>
-              <img src={quote} alt="Quote" style={{ width: '10%', height: 'auto' }} />
+              <img src={card.quote} alt="Quote" style={{ width: '10%', height: 'auto' }} />
             </Box>
             <Typography 
               variant="body1" 
-              sx={{ fontStyle: 'italic', fontWeight: 'bold', color: 'rgb(232,232,232)',  }}
+              sx={{ fontStyle: 'italic', fontWeight: 'bold', color: 'rgb(189,189,189)' }}
             >
-              Bonus panel testing 2
+              {card.description}
             </Typography>
-            <Typography variant="body2" sx={{ color: 'black', mt: 1,  }}>
+            <Typography variant="body2" sx={{ color: 'black', mt: 1 }}>
               Wed, Jul 17, 2024 • 3:45 PM
             </Typography>
             <Divider />
             <Box sx={{ display: 'flex', alignItems: 'center', my: 1 }}>
-              <img src={heart} alt="Heart" style={{ width: '24px', height: '24px' }} />
-              <img src={bagel} alt="Bagel" style={{ width: '24px', height: '24px', marginLeft: '8px' }} />
-              <img src={supply} alt="Supply" style={{ width: '24px', height: '24px', marginLeft: '8px' }} />
+              <img src={card.heart} alt="Heart" style={{ width: '24px', height: '24px' }} />
+              <img src={card.bagel} alt="Bagel" style={{ width: '24px', height: '24px', marginLeft: '8px' }} />
+              <img src={card.supply} alt="Supply" style={{ width: '24px', height: '24px', marginLeft: '8px' }} />
               <Typography variant="body2" sx={{ mx: 'auto' }}>151 Views</Typography>
               <Typography variant="body2" sx={{ ml: 'auto' }}>7 Comments</Typography>
             </Box>
@@ -81,7 +116,7 @@ function CustomCardList() {
               </Box>
             </Box>
             <Divider />
-            <Typography variant="body2" sx={{ mt: 1}}>See previous comments...</Typography>
+            <Typography variant="body2" sx={{ mt: 1 }}>See previous comments...</Typography>
           </CardContent>
         </Card>
       ))}
