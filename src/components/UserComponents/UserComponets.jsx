@@ -32,7 +32,10 @@ const UserComponents = () => {
         display: "flex",
         backgroundColor: "rgb(254,247,221)",
         zIndex: 0,
-        // height: "100vh", // Adjust height as needed
+        maxHeight: "100vh",
+        overflowY: "auto",
+        // height: "100vh", // Adjust height as needed,
+        marginTop:"60px"
       }}
     >
       <Box sx={{ backgroundColor: "rgb(254,247,221)", width: drawerWidth }}>

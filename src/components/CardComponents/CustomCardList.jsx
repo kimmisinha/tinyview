@@ -51,12 +51,13 @@ function CustomCardList() {
       sx={{
         backgroundColor: 'rgb(252,226,154)',
         width: "37%",
-        height: "100vh",
         overflowY: "auto",
         boxSizing: 'border-box',
         marginTop: "60px",
         margin: "60px 0px 0px 0px",
-        padding: "none"
+        padding: "none",
+        maxHeight: "100vh",
+
       }}
     >
       {cardsData.map((card, index) => (
@@ -70,7 +71,8 @@ function CustomCardList() {
               height: "256px",
               objectFit: 'fill', 
               backgroundColor: "rgb(254,248,230)",
-              zIndex: 0
+              zIndex: 0,
+              
             }}
           />
           <CardContent>
