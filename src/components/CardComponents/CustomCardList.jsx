@@ -9,7 +9,7 @@ import bagel from "../../assets/Images/CustomCardList/bagel.png";
 import AvatarImages1 from "../../assets/Images/CustomCardList/avtariamges.jpg";
 import AvatarImages2 from "../../assets/Images/CustomCardList/product-plug-profile.jpg";
 import AvatarImages3 from "../../assets/Images/CustomCardList/fowl-language-profile.jpg";
-import Images2 from "../../assets/Images/CustomCardList/avtariamges.jpg";
+import Images2 from "../../assets/Images/CustomCardList/onions_preview .jpg";
 import Images3 from "../../assets/Images/CustomCardList/Fresh-Air-and-Sun-header.jpg";
 
 function CustomCardList() {
@@ -41,8 +41,8 @@ function CustomCardList() {
       bagel: bagel,
       supply: supply,
       avatar: AvatarImages3,
-      heading: "Fowl Language: Tweenage Wasteland",
-      description: "Hey guys! My first new book in years, Tweenage Wasteland, comes out next week! You’re going to find it terribly relatable if your kids are going through the tween-teen years. And if your kids are still little, you can get a sneak preview of what’s coming!I REALLY need to get more preorders in to Amazon and everywhere else that sells books, though. For reasons I don’t entirely understand, these preorders are extremely important for the success of any book. They let Amazon and other booksellers know my little book exists, so they’ll actually stock and promote it.So, PLEASE, go preorder it now! Either at the link below or wherever you buy books. It’ll make a huge difference.Thanks SO much, it means the world to me! ❤️"
+      heading: "Fowl Language",
+      description: "Hey guys! My first new book in years, Tweenage Wasteland, comes out next week! You’re going to find it terribly relatable if your kids are going through the tween-teen years. And if your kids are still little, you can get a sneak preview of what’s coming! I REALLY need to get more preorders in to Amazon and everywhere else that sells books, though. For reasons I don’t entirely understand, these preorders are extremely important for the success of any book. They let Amazon and other booksellers know my little book exists, so they’ll actually stock and promote it. So, PLEASE, go preorder it now! Either at the link below or wherever you buy books. It’ll make a huge difference. Thanks SO much, it means the world to me! ❤️"
     }
   ];
 
@@ -64,12 +64,13 @@ function CustomCardList() {
           <CardMedia
             component="img"
             image={card.image}
-            width="100%"
-            height="auto"
             alt={`Background Noise ${index + 1}`}
             sx={{
+              width: "412px",
+              height: "256px",
+              objectFit: 'fill', 
               backgroundColor: "rgb(254,248,230)",
-              zIndex: 0,
+              zIndex: 0
             }}
           />
           <CardContent>
