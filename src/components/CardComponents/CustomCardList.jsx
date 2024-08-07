@@ -84,15 +84,16 @@ function CustomCardList() {
             <Box sx={{ display: 'flex', justifyContent: 'start', my: 1 }}>
               <img src={card.quote} alt="Quote" style={{ width: '10%', height: 'auto' }} />
             </Box>
+            <Typography variant="body2" sx={{ color: '#696969', mt: 1 }}>
+              Wed, Jul 17, 2024 • 3:45 PM
+            </Typography>
             <Typography 
               variant="body1" 
-              sx={{ fontStyle: 'italic', fontWeight: 'bold', color: 'rgb(189,189,189)' }}
+              sx={{ fontStyle: 'italic', fontWeight: 'bold', color: '#696969' }}
             >
               {card.description}
             </Typography>
-            <Typography variant="body2" sx={{ color: 'black', mt: 1 }}>
-              Wed, Jul 17, 2024 • 3:45 PM
-            </Typography>
+           
             <Divider />
             <Box sx={{ display: 'flex', alignItems: 'center', my: 1 }}>
               <img src={card.heart} alt="Heart" style={{ width: '24px', height: '24px' }} />

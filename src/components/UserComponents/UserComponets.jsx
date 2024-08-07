@@ -40,7 +40,7 @@ const UserComponents = () => {
         <Divider sx={{ width: "100%", borderColor: "white" }} />
         <List>
           <ListItem>
-            <Box sx={{ textAlign: "center" }}>
+            <Box>
               <Avatar
                 alt="Guest User"
                 src={user}
@@ -49,13 +49,13 @@ const UserComponents = () => {
                   height: 100,
                   margin: "0 auto",
                   color: "rgb(61,61,61)",
-                  paddingLeft: 6,
+                  paddingLeft: 2,
                 }}
               />
               <Typography
                 variant="h6"
                 fontWeight="bold"
-                sx={{ mt: 1, color: "rgb(61,61,61)",  paddingLeft: 6, }}
+                sx={{ mt: 1, color: "rgb(61,61,61)",  paddingLeft: 5, }}
               >
                 Guest User
               </Typography>
@@ -67,7 +67,8 @@ const UserComponents = () => {
                   color: "rgb(61,61,61)",
                   fontWeight: 700,
                   fontSize: "17px",
-                  paddingLeft: 6,
+                  paddingLeft: 5,
+                  paddingTop:1.5
                 }}
               >
                 Sign In
@@ -77,9 +78,9 @@ const UserComponents = () => {
           <ListItemButton>
             <Typography
               variant="body2"
-              sx={{ fontSize: "1.0rem" ,paddingLeft: 6,}}
+              sx={{ fontSize: "1.0rem" ,paddingLeft: 5,}}
             >
-              <span style={{ color: "rgb(98,98,98)" }}>New user?</span>
+              <span style={{ color: "rgb(98,98,98)", }}>New user?</span>
               <span style={{ color: "red", textDecoration: "underline" }}>
                 {" "}Sign Up
               </span>
@@ -97,7 +98,7 @@ const UserComponents = () => {
                     <img
                       src={appConfig.UsersDetails[key].icon}
                       alt={appConfig.UsersDetails[key].label}
-                      style={{ width: "70%", height: "70%" }}
+                      style={{ width: "70%", height: "70%" ,textAlign:"center"}}
                     />
                   </Box>
                 </ListItemIcon>
