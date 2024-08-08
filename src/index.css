@@ -1,12 +1,10 @@
 body {
   margin: auto;
   width: "80%";
+  font-family: system-ui, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+
 /* ::-webkit-scrollbar {
   display: none;
 } */
