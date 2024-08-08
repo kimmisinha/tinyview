@@ -9,8 +9,7 @@ import {
   Divider,
   Button,
 } from "@mui/material";
-import { PersonAdd } from "@mui/icons-material";
-import { Favorite, Comment, Share } from "@mui/icons-material";
+import { PersonAdd, Share } from "@mui/icons-material";
 import quote from "../../assets/Images/CustomCardList/quote.png";
 import Images1 from "../../assets/Images/CustomCardList/image-6.jpeg";
 import heart from "../../assets/Images/CustomCardList/heart.png";
@@ -23,6 +22,7 @@ import Images2 from "../../assets/Images/CustomCardList/onions_preview .jpg";
 import Images3 from "../../assets/Images/CustomCardList/Fresh-Air-and-Sun-header.jpg";
 import Tinyview from "../../assets/Images/TinyView/tinyview-fb-cover.jpg";
 import Tinyviewsavtar from "../../assets/Images/TinyView/profiles.jpg";
+import { Favorite, Comment } from '@mui/icons-material';
 
 function CustomCardList() {
   const cardsData = [
@@ -81,7 +81,7 @@ function CustomCardList() {
             padding: "0px",
             objectFit: "fill",
             backgroundColor: "rgb(254,248,230)",
-            zIndex: 0,
+            // zIndex: 0,
           }}
         />
         <CardMedia />
@@ -90,22 +90,34 @@ function CustomCardList() {
           <Box
             sx={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "center",
               alignItems: "center",
               margin: "2px",
+              position: "relative", // Ensure absolute positioning works for the avatar
             }}
           >
-            <Box sx={{ display: "flex", alignItems: "center", margin: "2px" }}>
-              <Avatar alt="Tinyview Avatar" src={Tinyviewsavtar} />
+            <Avatar
+              alt="Tinyview Avatar"
+              src={Tinyviewsavtar}
+
+              sx={{
+                position: "absolute",
+                top: "10px", // Adjust as needed to ensure it overlaps correctly
+                left: "20px",
+                top:"-20px",
+                zIndex:"20000px"
+              
+              }}
+            />
+            <Box sx={{ display: "flex", alignItems: "center", margin: "2px", paddingTop: "40px" }}>
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                   Tinyview Comics
                 </Typography>
                 <Typography variant="body2">
-  <span style={{ fontWeight: 'bold' }}>31.14M</span> Views &nbsp; | &nbsp; 
-  <span style={{ fontWeight: 'bold' }}>80.3K</span> Followers
-</Typography>
-
+                  <span style={{ fontWeight: 'bold' }}>31.14M</span> Views &nbsp; | &nbsp; 
+                  <span style={{ fontWeight: 'bold' }}>80.3K</span> Followers
+                </Typography>
               </Box>
             </Box>
           </Box>
@@ -125,16 +137,15 @@ function CustomCardList() {
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Share />
+              <Share />
               <Typography variant="body2" sx={{ ml: 1 }}>
                 Share
               </Typography>
             </Box>
           </Box>
           <Divider sx={{ my: 1 }} />
-          <Typography variant="body2">
-            Daily comics! Whether you're a kid or a grown-up, a science fanatic
-            or a political junkie, there's something for everyone on Tinyview.
+          <Typography variant="body2" sx={{ color: "rgb(61,61,61)", fontSize: "16px", margin: "13px" }}>
+            <span style={{ fontWeight: 'bold', fontSize: '18px' }}>Daily comics!</span> Whether you're a kid or a grown-up, a science fanatic or a political junkie, there's something for everyone on Tinyview.
           </Typography>
         </Card>
       </Card>
@@ -210,7 +221,7 @@ function CustomCardList() {
             <Typography variant="body2" sx={{ color: "#696969", mt: 1 }}>
               Wed, Jul 17, 2024 • 3:45 PM
             </Typography>
-            <Typography
+            {/* <Typography
               variant="body1"
               sx={{ fontStyle: "italic", fontWeight: "bold", color: "#696969" }}
             >
@@ -223,17 +234,58 @@ function CustomCardList() {
                 alt="Heart"
                 style={{ width: "24px", height: "24px" }}
               />
+              <Typography variant="body2" sx={{ ml: 1 }}>
+                211 Likes
+              </Typography>
               <img
                 src={card.bagel}
                 alt="Bagel"
-                style={{ width: "24px", height: "24px", marginLeft: "8px" }}
+                style={{ width: "24px", height: "24px", ml: 2 }}
               />
+              <Typography variant="body2" sx={{ ml: 1 }}>
+                24 Bagels
+              </Typography>
               <img
                 src={card.supply}
                 alt="Supply"
-                style={{ width: "24px", height: "24px", marginLeft: "8px" }}
+                style={{ width: "24px", height: "24px", ml: 2 }}
               />
+              <Typography variant="body2" sx={{ ml: 1 }}>
+                11 Supplies
+              </Typography>
             </Box>
+          </CardContent> */}
+           <Typography
+              variant="body1"
+              sx={{ fontStyle: 'italic', fontWeight: 'bold', color: '#696969' }}
+            >
+              {card.description}
+            </Typography>
+            <Divider />
+            <Box sx={{ display: 'flex', alignItems: 'center', my: 1 }}>
+              <img src={card.heart} alt="Heart" style={{ width: '24px', height: '24px' }} />
+              <img src={card.bagel} alt="Bagel" style={{ width: '24px', height: '24px', marginLeft: '8px' }} />
+              <img src={card.supply} alt="Supply" style={{ width: '24px', height: '24px', marginLeft: '8px' }} />
+              <Typography variant="body2" sx={{ mx: 'auto' }}>151 Views</Typography>
+              <Typography variant="body2" sx={{ ml: 'auto' }}>7 Comments</Typography>
+            </Box>
+            <Divider />
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', my: 1 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Favorite />
+                <Typography variant="body2" sx={{ ml: 1 }}>Like</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Comment />
+                <Typography variant="body2" sx={{ ml: 1 }}>Comment</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Share />
+                <Typography variant="body2" sx={{ ml: 1 }}>Share</Typography>
+              </Box>
+            </Box>
+            <Divider />
+            <Typography variant="body2" sx={{ mt: 1 }}>See previous comments...</Typography>
           </CardContent>
         </Card>
       ))}

@@ -14,7 +14,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import appConfig from "../../config/appConfig";
 import user from "../../assets/Images/Useimage/UseImage.png";
 
-const drawerWidth = 350;
+const drawerWidth = 320;
 
 const UserComponents = () => {
   const [openDropdowns, setOpenDropdowns] = useState({});
@@ -34,8 +34,9 @@ const UserComponents = () => {
         zIndex: 0,
         maxHeight: "100vh",
         overflowY: "auto",
-        // height: "100vh", // Adjust height as needed,
-        marginTop:"60px"
+        height: "100vh",
+        marginTop:"30px",
+        marginLeft:"30px"
       }}
     >
       <Box sx={{ backgroundColor: "rgb(254,247,221)", width: drawerWidth }}>
