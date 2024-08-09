@@ -58,6 +58,38 @@ function CustomCardList() {
       description:
         "Hey guys! My first new book in years, Tweenage Wasteland, comes out next week! You’re going to find it terribly relatable if your kids are going through the tween-teen years. And if your kids are still little, you can get a sneak preview of what’s coming! I REALLY need to get more preorders in to Amazon and everywhere else that sells books, though. For reasons I don’t entirely understand, these preorders are extremely important for the success of any book. They let Amazon and other booksellers know my little book exists, so they’ll actually stock and promote it. So, PLEASE, go preorder it now! Either at the link below or wherever you buy books. It’ll make a huge difference. Thanks SO much, it means the world to me! ❤️",
     },
+    {
+      image: Images1,
+      quote: quote,
+      heart: heart,
+      bagel: bagel,
+      supply: supply,
+      avatar: AvatarImages1,
+      heading: "Fowl Language",
+      description: "Bonus panel testing 2",
+    },
+    {
+      image: Images2,
+      quote: quote,
+      heart: heart,
+      bagel: bagel,
+      supply: supply,
+      avatar: AvatarImages2,
+      heading: "Episode 341",
+      description:
+        "Frankie's rid of her bully for now and can spend a little time enjoying the great outdoors. Surely nothing could go wrong with that, right?",
+    },
+    {
+      image: Images3,
+      quote: quote,
+      heart: heart,
+      bagel: bagel,
+      supply: supply,
+      avatar: AvatarImages3,
+      heading: "Fowl Language",
+      description:
+        "Hey guys! My first new book in years, Tweenage Wasteland, comes out next week! You’re going to find it terribly relatable if your kids are going through the tween-teen years. And if your kids are still little, you can get a sneak preview of what’s coming! I REALLY need to get more preorders in to Amazon and everywhere else that sells books, though. For reasons I don’t entirely understand, these preorders are extremely important for the success of any book. They let Amazon and other booksellers know my little book exists, so they’ll actually stock and promote it. So, PLEASE, go preorder it now! Either at the link below or wherever you buy books. It’ll make a huge difference. Thanks SO much, it means the world to me! ❤️",
+    },
   ];
 
   return (

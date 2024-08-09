@@ -102,7 +102,7 @@ const UserComponents = () => {
                     <img
                       src={appConfig.UsersDetails[key].icon}
                       alt={appConfig.UsersDetails[key].label}
-                      style={{ width: "70%", height: "70%" ,textAlign:"center"}}
+                      style={{ width: "70%", height: "70%" ,textAlign:"center",paddingTop:"3px"}}
                     />
                   </Box>
                 </ListItemIcon>
@@ -131,7 +131,7 @@ const UserComponents = () => {
                         <img
                           src={appConfig.UsersAccount[key].icon}
                           alt={appConfig.UsersAccount[key].label}
-                          style={{ width: "70%", height: "70%" }}
+                          style={{ width: "70%", height: "70%" ,paddingTop:"3px"}}
                         />
                       </Box>
                     </ListItemIcon>
@@ -149,7 +149,7 @@ const UserComponents = () => {
                       <>
                         <ListItemButton>
                           <ListItemIcon>
-                            <Box sx={{ width: 24, height: 24 }}>
+                            <Box sx={{ width: 24, height: 24}}>
                               <img
                                 src={appConfig.UsersAccount.account.actions.subscribe.icon}
                                 alt={appConfig.UsersAccount.account.actions.subscribe.label}

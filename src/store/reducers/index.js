@@ -1,12 +1,7 @@
-// import { combineReducers } from "redux";
-// import snackbar from "../Snackbar/SnackbarReducer";
-// import lang from "../Lang/LangReducer";
-// import loader from "../Loader/LoaderReducer";
-// import Feature1 from "../Feature1/FeatureReducer";
+import { combineReducers } from "redux";
 
-// export default combineReducers({
-//   lang,
-//   loader,
-//   snackbar,
-//   Feature1
-// });
+import AllComicsDetails from "../AllComics/AllComicsReducer";
+
+export default combineReducers({
+    AllComicsDetails
+});

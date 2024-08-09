@@ -1,9 +1,9 @@
-// import { FeatureSaga1 } from '../Feature1/FeatureSagas';
-// import { fork, all } from "redux-saga/effects";
+import { AllComicsSagas1 } from '../AllComics/AllComicsSagas';
+import { fork, all } from "redux-saga/effects";
 
-// export function* watchSagas() {
-//   //Combine sagas with 
-//   yield all([FeatureSaga1()]);
-//   // OR
-//   // yield all([fork(FeatureSaga1)]);
-// }
+export function* watchSagas() {
+  //Combine sagas with 
+  console.log("hi")
+  yield all([AllComicsSagas1()]);
+  // OR
+}
