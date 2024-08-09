@@ -5,42 +5,33 @@ const initialState = {
   loading: false,
   error: null,
 };
-const cusomurl = "https://storage.googleapis.com/tinyview-dev.appspot.com";
+const imageUrl = "https://storage.googleapis.com/tinyview-dev.appspot.com";
 
-const cardsReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case types.FETCH_CARDS_SUCCESS:
-      const _data = action.payload.result.data.map((comic) => ({
+      const data = action.payload.result.data.map((comic) => ({
         title: comic.title || "",
         dateTime: comic.datetime || "",
-        image: comic.image ? `${cusomurl}/${comic.image}` : "",
+        image: comic.image ? `${imageUrl}${comic.image}` : "",
         commentCount: comic.commentCount || 0,
       }));
-      console.log("All comics-->", _data);
+      // console.log("All comics-->", data);
 
       return {
         ...state,
         loading: false,
-        allComics: _data,
-        loading: true,
-        error: null,
+        allComics: [...data],
       };
 
-    case types.FETCH_CARDS_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        allComics: action.payload,
-      };
     case types.FETCH_CARDS_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
+
     default:
       return state;
   }
 };
-
-export default cardsReducer;

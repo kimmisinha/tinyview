@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-import AllComicsDetails from "../AllComics/AllComicsReducer";
+import CardsReducer from "../AllComics/AllComicsReducer";
 
 export default combineReducers({
-    AllComicsDetails
+    CardsReducer
 });

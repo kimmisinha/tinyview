@@ -28,16 +28,22 @@ const UserComponents = () => {
 
   return (
     <Box
-      sx={{
-        display: "flex",
-        backgroundColor: "rgb(254,247,221)",
-        zIndex: 0,
-        maxHeight: "100vh",
-        overflowY: "auto",
-        height: "100vh",
-        marginTop:"30px",
-        marginLeft:"30px"
-      }}
+    sx={{
+      display: "flex",
+      backgroundColor: "rgb(254,247,221)",
+      zIndex: 0,
+      maxHeight: "100vh",
+      overflowY: "auto",
+      scrollbarWidth: "none",
+      msOverflowStyle: "none",
+      height: "100vh",
+      marginTop: "30px",
+      marginLeft: "30px",
+      '&::-webkit-scrollbar': {
+        display: 'none' // Hides scrollbar
+      }
+    }}
+    
     >
       <Box sx={{ backgroundColor: "rgb(254,247,221)", width: drawerWidth }}>
         <Toolbar />
