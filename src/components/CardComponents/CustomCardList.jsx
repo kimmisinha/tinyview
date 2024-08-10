@@ -468,10 +468,10 @@
                     bgcolor: "rgb(223,71,75)",
                     color: "white",
                     mt: 1,
-                    textTransform: "none", // Remove capitalization
-                    padding: "6px 12px", // Adjust size
+                    textTransform: "none",
+                    padding: "6px 12px", 
                     "&:hover": {
-                      bgcolor: "rgb(223,71,75)", // Remove hover effect
+                      bgcolor: "rgb(223,71,75)", 
                     },
                   }}
                 >

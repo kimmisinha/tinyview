@@ -15,6 +15,7 @@ const apiExampleRequest = async () => {
     const response = await axiosInstance.post(url, body, {
       handlerEnabled,
     });
+    console.log("response",response)
     return response.data;
   } catch (error) {
     console.error("API Error:", error);
