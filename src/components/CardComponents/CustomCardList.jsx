@@ -353,7 +353,7 @@
       fetchAllComics();
     }, []);
 
-    console.log("All Comics--->", allComics);
+    // console.log("All Comics--->", allComics);
 
     return (
       <Box
@@ -520,7 +520,8 @@
                     />
                   </Box>
                   <Typography variant="body2" sx={{ color: "#696969", mt: 1 }}>
-                    Wed, Jul 17, 2024 • 3:45 PM
+                    {/* Wed, Jul 17, 2024 • 3:45 PM */}
+                    {card.dateTime}
                   </Typography>
       
                   <Typography
@@ -547,10 +548,12 @@
                       style={{ width: "24px", height: "24px", marginLeft: "8px" }}
                     />
                     <Typography variant="body2" sx={{ mx: "auto" }}>
-                      151 Views
+                      {/* 151 Views */}
+                      {card.likeCount +`${" Views"}`}
                     </Typography>
                     <Typography variant="body2" sx={{ ml: "auto" }}>
-                      7 Comments
+                      {/* 7 Comments */}
+                      {card.commentCount+`${" Comments"}`}
                     </Typography>
                   </Box>
                   <Divider />
