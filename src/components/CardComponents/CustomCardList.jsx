@@ -354,7 +354,7 @@ import { useTheme, useMediaQuery } from '@mui/material';
 
 function CustomCardList({ allComics, fetchAllComics }) {
   const theme = useTheme();
-  // const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   useEffect(() => {
     fetchAllComics();
@@ -363,21 +363,17 @@ function CustomCardList({ allComics, fetchAllComics }) {
   // console.log("All Comics--->", allComics);
 
   return (
-    <>   <Box
+    <Box
       sx={{
-        backgroundColor: "rgb(252,226,154)",
-        width: "37%",
+        backgroundColor: "rgb(247,222,151)",
+        width: isSmallScreen ? "100%" : "37%",
         overflowY: "auto",
         boxSizing: "border-box",
-        // marginTop: "60px",
-        margin: "40px 0px 0px 0px",
+        margin: isSmallScreen ? "0px 0px 0px 0px" : "40px 0px 0px 0px",
         padding: "none",
-        // border:"2px solid blue",
         maxHeight: "100vh",
-        backgroundColor: "rgb(247,222,151)",
       }}
     >
-      {/* //main div */}
       <Card
         sx={{
           backgroundColor: "rgb(247,222,151)",
@@ -395,7 +391,6 @@ function CustomCardList({ allComics, fetchAllComics }) {
           }}
         />
         <CardMedia />
-
         <Card sx={{ m: 2, height: "220px" }}>
           <Box sx={{ paddingTop: "20px", padding: "10px 15px" }}>
             <Box>
@@ -410,7 +405,6 @@ function CustomCardList({ allComics, fetchAllComics }) {
                   style={{
                     fontWeight: "bold",
                     fontSize: "16px",
-                    fontWeight: "700px",
                   }}
                 >
                   31.14M
@@ -419,7 +413,6 @@ function CustomCardList({ allComics, fetchAllComics }) {
                   style={{
                     color: "rgb(154,154,154)",
                     fontSize: "16px",
-                    fontWeight: "400px",
                   }}
                 >
                   Views
@@ -429,7 +422,6 @@ function CustomCardList({ allComics, fetchAllComics }) {
                   style={{
                     fontWeight: "bold",
                     fontSize: "16px",
-                    fontWeight: "700px",
                   }}
                 >
                   80.3K
@@ -438,7 +430,6 @@ function CustomCardList({ allComics, fetchAllComics }) {
                   style={{
                     color: "rgb(154,154,154)",
                     fontSize: "16px",
-                    fontWeight: "400px",
                   }}
                 >
                   Followers
@@ -446,7 +437,6 @@ function CustomCardList({ allComics, fetchAllComics }) {
               </Typography>
             </Box>
           </Box>
-          {/* </Box> */}
           <Divider sx={{ my: 1 }} />
           <Box
             sx={{
@@ -495,7 +485,6 @@ function CustomCardList({ allComics, fetchAllComics }) {
             </span>
           </Typography>
         </Card>
-
         <Card sx={{ m: 2, height: "140px", borderRadius: "9px" }}>
           <Box sx={{ paddingTop: "20px", padding: "10px 15px" }}>
             <Typography
@@ -507,7 +496,6 @@ function CustomCardList({ allComics, fetchAllComics }) {
             <Typography variant="body2" sx={{ mt: 1 }}>
               You can now receive alerts via email.
             </Typography>
-
             <Button
               sx={{
                 bgcolor: "rgb(223,71,75)",
@@ -526,8 +514,6 @@ function CustomCardList({ allComics, fetchAllComics }) {
         </Card>
       </Card>
 
-     
-
       {allComics.map((card, index) => (
         <Card key={index} sx={{ m: 2 }}>
           <CardMedia
@@ -535,7 +521,7 @@ function CustomCardList({ allComics, fetchAllComics }) {
             image={card.image}
             alt={`Background Noise ${index + 1}`}
             sx={{
-              width: "412px",
+              width: isSmallScreen ? "100%" : "412px",
               height: "256px",
               objectFit: "fill",
               backgroundColor: "rgb(254,248,230)",
@@ -568,10 +554,8 @@ function CustomCardList({ allComics, fetchAllComics }) {
               />
             </Box>
             <Typography variant="body2" sx={{ color: "#696969", mt: 1 }}>
-              {/* Wed, Jul 17, 2024 • 3:45 PM */}
               {card.dateTime}
             </Typography>
-
             <Typography
               variant="body1"
               sx={{
@@ -605,12 +589,10 @@ function CustomCardList({ allComics, fetchAllComics }) {
                 style={{ width: "24px", height: "24px", marginLeft: "8px" }}
               />
               <Typography variant="body2" sx={{ mx: "auto" }}>
-                {/* 151 Views */}
-                {card.likeCount + `${" Views"}`}
+                {card.likeCount + " Views"}
               </Typography>
               <Typography variant="body2" sx={{ ml: "auto" }}>
-                {/* 7 Comments */}
-                {card.commentCount + `${" Comments"}`}
+                {card.commentCount + " Comments"}
               </Typography>
             </Box>
             <Divider />
@@ -636,65 +618,12 @@ function CustomCardList({ allComics, fetchAllComics }) {
                 </Typography>
               </Box>
             </Box>
-            <Divider />
-            <Typography
-              variant="body2"
-              sx={{
-                mt: 1,
-                fontWeight: 400,
-                color: "#626262",
-                fontSize: "16px",
-                lineHeight: "140%",
-              }}
-            >
-              See previous comments...
-            </Typography>
-
-            {/* //adding comment */}
-
-            <Card
-              style={{
-                display: "flex",
-                padding: "10px",
-                alignItems: "center",
-                boxShadow:"none"
-              }}
-            >
-              <Avatar
-                alt="Tinyview Admin"
-                src="/path_to_image"
-                style={{ width: 35, height: 35 }}
-              />
-              <Box
-                ml={2}
-                style={{
-                  flex: 1,
-                  borderRadius:"10px",
-                  backgroundColor: "rgb(223,246,236)",
-                  padding: "8px 16px",
-                }}
-              >
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    color: "#626262",
-                    lineHeight: "140%",
-                  }}
-                >
-                  {card.comment}
-                </Typography>
-              </Box>
-            </Card>
           </CardContent>
         </Card>
       ))}
-      {/* </InfiniteScroll> */}
+              {/* <Footer/> */}
+
     </Box>
-    {/* {isSmallScreen && <Footer />} */}
-    </>
- 
   );
 }
 
