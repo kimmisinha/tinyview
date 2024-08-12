@@ -7,7 +7,6 @@ const initialState = {
 };
 
 const imageUrl = "https://storage.googleapis.com/tinyview-dev.appspot.com";
-
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.FETCH_CARDS_SUCCESS:
@@ -26,7 +25,9 @@ export default (state = initialState, action) => {
           dateTime: `${formattedDate} • ${formattedTime}`,
           image: comic.image ? `${imageUrl}${comic.image}` : "",
           commentCount: comic.commentCount || 0,
-          likeCount: comic.likeCount || 0
+          likeCount: comic.likeCount || 0,
+          description:comic.description||"descriptionBonus Panel with Premium Comic",
+          avatarImage: comic.user.image? `${imageUrl}${comic.user.image}` : "",
         };
       });
       console.log("All comics-->", data);

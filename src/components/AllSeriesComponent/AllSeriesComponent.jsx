@@ -40,7 +40,8 @@ function AllSeriesComponent() {
         overflow: "scroll",
         // marginTop: "60px",
         zIndex:0,
-        paddingTop:"60px"
+        paddingTop:"60px",
+        paddingBottom:"0px"
 
       }}
     >
@@ -57,7 +58,7 @@ function AllSeriesComponent() {
       {array.map((item, index) => (
         <Card
           key={index}
-          sx={{ width: 320, margin: "20px auto", borderRadius: "5px" ,}}
+          sx={{ width: 300, margin: "20px auto", borderRadius: "5px" ,}}
         >
           <CardMedia
             component="img"

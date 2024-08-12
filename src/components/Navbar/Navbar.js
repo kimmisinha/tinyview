@@ -11,7 +11,7 @@ function Navbar() {
         // border: "2px solid red",
         backgroundColor: "white",
         position: "fixed",
-        width: "80%",
+        width: "100%",
         hight:"200px",
         padding:"10px 61px 10px 27px",
         zIndex:10
