@@ -349,9 +349,13 @@ import quote from "../../assets/Images/CustomCardList/quote.png";
 import heart from "../../assets/Images/CustomCardList/heart.png";
 import supply from "../../assets/Images/CustomCardList/supply.png";
 import bagel from "../../assets/Images/CustomCardList/bagel.png";
-// import InfiniteScroll from 'react-infinite-scroll-component';
+import Footer from "../Footer/Footer";
+import { useTheme, useMediaQuery } from '@mui/material';
 
 function CustomCardList({ allComics, fetchAllComics }) {
+  const theme = useTheme();
+  // const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+
   useEffect(() => {
     fetchAllComics();
   }, []);
@@ -359,7 +363,7 @@ function CustomCardList({ allComics, fetchAllComics }) {
   // console.log("All Comics--->", allComics);
 
   return (
-    <Box
+    <>   <Box
       sx={{
         backgroundColor: "rgb(252,226,154)",
         width: "37%",
@@ -522,12 +526,7 @@ function CustomCardList({ allComics, fetchAllComics }) {
         </Card>
       </Card>
 
-      {/* <InfiniteScroll dataLength={allComics.length}
-      next={fetchAllComics}
-      hasMore={true}
-      loader={<h4>Loading...</h4>}
-      scrollableTarget="scrollableDiv"
-      > */}
+     
 
       {allComics.map((card, index) => (
         <Card key={index} sx={{ m: 2 }}>
@@ -693,6 +692,9 @@ function CustomCardList({ allComics, fetchAllComics }) {
       ))}
       {/* </InfiniteScroll> */}
     </Box>
+    {/* {isSmallScreen && <Footer />} */}
+    </>
+ 
   );
 }
 

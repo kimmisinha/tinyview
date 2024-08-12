@@ -1,3 +1,30 @@
+// import React from "react";
+// import CustomCardList from "../CardComponents/CustomCardList";
+// import UserComponets from "../UserComponents/UserComponets";
+// import Navbar from "../Navbar/Navbar";
+// import AllSeriesComponent from "../AllSeriesComponent/AllSeriesComponent";
+// import { useTheme, useMediaQuery, Box } from "@mui/material";
+
+// function Homecomponent() {
+//   const theme = useTheme();
+//   const showCustomCardList = useMediaQuery(theme.breakpoints.down("md"));
+
+//   return (
+//     // <Box
+//         <Box display="flex" width="100%">
+//           <Navbar />
+//           <UserComponets />
+//           <CustomCardList />
+//           <AllSeriesComponent />
+//         </Box>
+//       // )}
+//     // </Box>
+//   );
+// }
+
+// export default Homecomponent;
+
+
 import React from "react";
 import CustomCardList from "../CardComponents/CustomCardList";
 import UserComponets from "../UserComponents/UserComponets";
@@ -7,12 +34,12 @@ import { useTheme, useMediaQuery, Box } from "@mui/material";
 
 function Homecomponent() {
   const theme = useTheme();
-  const showCustomCardList = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md")); // Check if the screen is medium or smaller
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-      {showCustomCardList ? (
-        <Box display="flex" justifyContent="center" alignItems="center">
+    <Box >
+      {isSmallScreen ? (
+        <Box width="100%">
           <CustomCardList />
         </Box>
       ) : (
@@ -20,6 +47,7 @@ function Homecomponent() {
           <Navbar />
           <UserComponets />
           <CustomCardList />
+
           <AllSeriesComponent />
         </Box>
       )}
@@ -28,3 +56,5 @@ function Homecomponent() {
 }
 
 export default Homecomponent;
+
+
