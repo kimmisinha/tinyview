@@ -28,6 +28,7 @@ export default (state = initialState, action) => {
           likeCount: comic.likeCount || 0,
           description:comic.description||"descriptionBonus Panel with Premium Comic",
           avatarImage: comic.user.image? `${imageUrl}${comic.user.image}` : "",
+          comment:comic.comment||"Bonus panel testing 2",
         };
       });
       console.log("All comics-->", data);

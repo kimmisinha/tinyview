@@ -349,6 +349,8 @@ import quote from "../../assets/Images/CustomCardList/quote.png";
 import heart from "../../assets/Images/CustomCardList/heart.png";
 import supply from "../../assets/Images/CustomCardList/supply.png";
 import bagel from "../../assets/Images/CustomCardList/bagel.png";
+// import InfiniteScroll from 'react-infinite-scroll-component';
+
 function CustomCardList({ allComics, fetchAllComics }) {
   useEffect(() => {
     fetchAllComics();
@@ -520,6 +522,13 @@ function CustomCardList({ allComics, fetchAllComics }) {
         </Card>
       </Card>
 
+      {/* <InfiniteScroll dataLength={allComics.length}
+      next={fetchAllComics}
+      hasMore={true}
+      loader={<h4>Loading...</h4>}
+      scrollableTarget="scrollableDiv"
+      > */}
+
       {allComics.map((card, index) => (
         <Card key={index} sx={{ m: 2 }}>
           <CardMedia
@@ -641,9 +650,48 @@ function CustomCardList({ allComics, fetchAllComics }) {
             >
               See previous comments...
             </Typography>
+
+            {/* //adding comment */}
+
+            <Card
+              style={{
+                display: "flex",
+                padding: "10px",
+                alignItems: "center",
+                boxShadow:"none"
+              }}
+            >
+              <Avatar
+                alt="Tinyview Admin"
+                src="/path_to_image"
+                style={{ width: 35, height: 35 }}
+              />
+              <Box
+                ml={2}
+                style={{
+                  flex: 1,
+                  borderRadius:"10px",
+                  backgroundColor: "rgb(223,246,236)",
+                  padding: "8px 16px",
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontWeight: 400,
+                    fontSize: "16px",
+                    color: "#626262",
+                    lineHeight: "140%",
+                  }}
+                >
+                  {card.comment}
+                </Typography>
+              </Box>
+            </Card>
           </CardContent>
         </Card>
       ))}
+      {/* </InfiniteScroll> */}
     </Box>
   );
 }
