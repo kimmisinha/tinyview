@@ -18,10 +18,10 @@ import termsofUse from "../../src/assets/Images/UserAccount/termsofUse.png";
 
 const appConfig = {
   UsersDetails: {
-    back: {
-      icon: Back,
-      label: 'Back'
-    },
+    // back: {
+    //   icon: Back,
+    //   label: 'Back'
+    // },
     home: {
       icon: Home,
       label: 'Home'

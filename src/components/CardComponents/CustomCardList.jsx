@@ -362,8 +362,8 @@
               width: "37%",
               overflowY: "auto",
               boxSizing: "border-box",
-              marginTop: "60px",
-              margin: "60px 0px 0px 0px",
+              // marginTop: "60px",
+              margin: "40px 0px 0px 0px",
               padding: "none",
               maxHeight: "100vh",
             }}
@@ -387,16 +387,16 @@
                     <Box>
                       <Typography
                         variant="h6"
-                        sx={{ fontWeight: "bold", color: "rgb(154,154,154)", }}
+                        sx={{ fontWeight: "bold", color: "rgb(61,61,61)", }}
                       >
                         Tinyview Comics
                       </Typography>
                       <Typography variant="body2">
-                        <span style={{ fontWeight: "bold" }}>31.14M</span>{" "}
-                        <span style={{ color: "rgb(154,154,154)" }}>Views</span>{" "}
+                        <span style={{ fontWeight: "bold",fontSize:"16px",fontWeight:"700px" }}>31.14M</span>{" "}
+                        <span style={{ color: "rgb(154,154,154)",fontSize:"16px",fontWeight:"400px" }}>Views</span>{" "}
                         &nbsp; | &nbsp;
-                        <span style={{ fontWeight: "bold" }}>80.3K</span>{" "}
-                        <span style={{ color: "rgb(154,154,154)" }}>Followers</span>
+                        <span style={{ fontWeight: "bold",fontSize:"16px",fontWeight:"700px" }}>80.3K</span>{" "}
+                        <span style={{ color: "rgb(154,154,154)",fontSize:"16px",fontWeight:"400px" }}>Followers</span>
                       </Typography>
                     </Box>
                   </Box>

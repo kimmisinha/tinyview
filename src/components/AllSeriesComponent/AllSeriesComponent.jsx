@@ -40,6 +40,7 @@ function AllSeriesComponent() {
         overflow: "scroll",
         // marginTop: "60px",
         zIndex:0,
+        paddingTop:"60px"
 
       }}
     >
