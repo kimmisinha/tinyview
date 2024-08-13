@@ -340,7 +340,7 @@ import {
 import Tinyview from "../../assets/Images/TinyView/tinyview-fb-cover.jpg";
 import Tinyviewsavtar from "../../assets/Images/TinyView/profiles.jpg";
 import { Favorite, Comment } from "@mui/icons-material";
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { fetchCardsRequest } from "../../store/AllComics/AllComicsAction";
 import { bindActionCreators } from "redux";
@@ -350,20 +350,45 @@ import heart from "../../assets/Images/CustomCardList/heart.png";
 import supply from "../../assets/Images/CustomCardList/supply.png";
 import bagel from "../../assets/Images/CustomCardList/bagel.png";
 import Footer from "../Footer/Footer";
-import { useTheme, useMediaQuery } from '@mui/material';
+import { useTheme, useMediaQuery } from "@mui/material";
 
 function CustomCardList({ allComics, fetchAllComics }) {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const listRef = useRef(null);
+  const [startAfter, setStartAfter] = useState(null);
 
   useEffect(() => {
-    fetchAllComics();
-  }, []);
+    fetchAllComics(startAfter);
+  }, [fetchAllComics, startAfter]);
 
-  // console.log("All Comics--->", allComics);
+  const handleScroll = () => {
+    if (listRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = listRef.current;
+      if (scrollTop + clientHeight >= scrollHeight) {
+          console.log("allcomics", allComics);
+          setStartAfter(allComics[allComics.length - 1].id);
+        
+      }
+    }
+  };
+
+  useEffect(() => {
+    const listElement = listRef.current;
+    if (listElement) {
+      listElement.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      if (listElement) {
+        listElement.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [allComics]);
 
   return (
     <Box
+      ref={listRef}
       sx={{
         backgroundColor: "rgb(247,222,151)",
         width: isSmallScreen ? "100%" : "37%",
@@ -621,8 +646,7 @@ function CustomCardList({ allComics, fetchAllComics }) {
           </CardContent>
         </Card>
       ))}
-              {/* <Footer/> */}
-
+      {/* <Footer/> */}
     </Box>
   );
 }

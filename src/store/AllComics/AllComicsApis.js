@@ -1,12 +1,11 @@
 import { axiosInstance } from "../../network/apis";
 const handlerEnabled = false;
 
-// Replace endpoint and change api name
-const apiExampleRequest = async () => {
+const apiExampleRequest = async (startAfter) => {
   let url = "/getAllComics";
   const body = JSON.stringify({
     data: {
-      startAfter: "",
+      startAfter: startAfter,
       records: "20",
       likeInfo: 1,
     },
@@ -15,7 +14,7 @@ const apiExampleRequest = async () => {
     const response = await axiosInstance.post(url, body, {
       handlerEnabled,
     });
-    console.log("response",response)
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("API Error:", error);

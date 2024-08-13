@@ -12,13 +12,22 @@ export default (state = initialState, action) => {
     case types.FETCH_CARDS_SUCCESS:
       const data = action.payload.result.data.map((comic) => {
         const date = new Date(comic.datetime);
-        
-        // Formatting the date and time
-        const optionsDate = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
-        const optionsTime = { hour: 'numeric', minute: 'numeric', hour12: true };
 
-        const formattedDate = date.toLocaleDateString('en-US', optionsDate);
-        const formattedTime = date.toLocaleTimeString('en-US', optionsTime);
+        // Formatting the date and time
+        const optionsDate = {
+          weekday: "short",
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        };
+        const optionsTime = {
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        };
+
+        const formattedDate = date.toLocaleDateString("en-US", optionsDate);
+        const formattedTime = date.toLocaleTimeString("en-US", optionsTime);
 
         return {
           title: comic.title || "",
@@ -26,17 +35,19 @@ export default (state = initialState, action) => {
           image: comic.image ? `${imageUrl}${comic.image}` : "",
           commentCount: comic.commentCount || 0,
           likeCount: comic.likeCount || 0,
-          description:comic.description||"descriptionBonus Panel with Premium Comic",
-          avatarImage: comic.user.image? `${imageUrl}${comic.user.image}` : "",
-          comment:comic.comment||"Bonus panel testing 2",
+          description:
+            comic.description || "descriptionBonus Panel with Premium Comic",
+          avatarImage: comic.user.image ? `${imageUrl}${comic.user.image}` : "",
+          comment: comic.comment || "Bonus panel testing 2",
+          id: comic.storyID,
         };
       });
-      console.log("All comics-->", data);
+      // console.log("All comics-->", data);
 
       return {
         ...state,
         loading: false,
-        allComics: [...data],
+        allComics: [...state.allComics,...data],
       };
 
     case types.FETCH_CARDS_FAILURE:

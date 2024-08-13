@@ -1,6 +1,9 @@
 import * as allType from "./AllComicsTypes";
 
-export const fetchCardsRequest = () => ({ type: allType.FETCH_CARDS_REQUEST });
+export const fetchCardsRequest = (startAfter) => ({
+  type: allType.FETCH_CARDS_REQUEST,
+  payload: startAfter,
+});
 export const fetchCardsSuccess = (data) => ({
   type: allType.FETCH_CARDS_SUCCESS,
   payload: data,
