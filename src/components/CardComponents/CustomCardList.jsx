@@ -360,6 +360,7 @@ function CustomCardList({ allComics, fetchAllComics }) {
 
   useEffect(() => {
     fetchAllComics(startAfter);
+    
   }, [fetchAllComics, startAfter]);
 
   const handleScroll = () => {
@@ -367,6 +368,7 @@ function CustomCardList({ allComics, fetchAllComics }) {
       const { scrollTop, scrollHeight, clientHeight } = listRef.current;
       if (scrollTop + clientHeight >= scrollHeight) {
           console.log("allcomics", allComics);
+
           setStartAfter(allComics[allComics.length - 1].id);
         
       }
@@ -376,14 +378,20 @@ function CustomCardList({ allComics, fetchAllComics }) {
   useEffect(() => {
     const listElement = listRef.current;
     if (listElement) {
+      console.log("allcomicshhs");
+
       listElement.addEventListener("scroll", handleScroll);
     }
 
     return () => {
       if (listElement) {
+        console.log("allcomicshsxxsxhs");
+
         listElement.removeEventListener("scroll", handleScroll);
       }
     };
+    console.log("allcomisxsxscshhs");
+
   }, [allComics]);
 
   return (
