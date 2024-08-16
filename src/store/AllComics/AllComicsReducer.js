@@ -9,6 +9,11 @@ const initialState = {
 const imageUrl = "https://storage.googleapis.com/tinyview-dev.appspot.com";
 export default (state = initialState, action) => {
   switch (action.type) {
+    case types.FETCH_CARDS_REQUEST:
+      return {
+        ...state,
+        loading: true, 
+      };
     case types.FETCH_CARDS_SUCCESS:
       const data = action.payload.result.data.map((comic) => {
         const date = new Date(comic.datetime);

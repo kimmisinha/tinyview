@@ -352,46 +352,64 @@ import bagel from "../../assets/Images/CustomCardList/bagel.png";
 import Footer from "../Footer/Footer";
 import { useTheme, useMediaQuery } from "@mui/material";
 
+import CustomSkeleton from "../Skeleton/CustomSkeleton"
+// Shimmer Overlay Component
+
+// Shimmer Animation CSS
+const shimmerStyle = `
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+`;
 function CustomCardList({ allComics, fetchAllComics }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   const listRef = useRef(null);
   const [startAfter, setStartAfter] = useState(null);
+  const [loadingMore, setLoadingMore] = useState(false);
 
   useEffect(() => {
     fetchAllComics(startAfter);
-    
   }, [fetchAllComics, startAfter]);
 
   const handleScroll = () => {
     if (listRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = listRef.current;
-      if (scrollTop + clientHeight >= scrollHeight) {
-          console.log("allcomics", allComics);
-
-          setStartAfter(allComics[allComics.length - 1].id);
-        
+      if (scrollTop + clientHeight >= scrollHeight && !loadingMore) {
+        setLoadingMore(true);
+        setStartAfter(allComics[allComics.length - 1]?.id || null);
       }
     }
   };
 
+  // 2 run this
   useEffect(() => {
     const listElement = listRef.current;
     if (listElement) {
-      console.log("allcomicshhs");
+      console.log("allkkkcscsccomicshhs");
 
       listElement.addEventListener("scroll", handleScroll);
     }
 
+    //1 run this
     return () => {
       if (listElement) {
-        console.log("allcomicshsxxsxhs");
+        console.log("allcomiccscssshsxxsxhs");
 
         listElement.removeEventListener("scroll", handleScroll);
       }
     };
-    console.log("allcomisxsxscshhs");
+  }, [allComics, loadingMore]);
 
+  useEffect(() => {
+    if (loadingMore) {
+      setLoadingMore(false);
+    }
   }, [allComics]);
 
   return (
@@ -547,6 +565,8 @@ function CustomCardList({ allComics, fetchAllComics }) {
         </Card>
       </Card>
 
+      <style>{shimmerStyle}</style>
+
       {allComics.map((card, index) => (
         <Card key={index} sx={{ m: 2 }}>
           <CardMedia
@@ -654,6 +674,10 @@ function CustomCardList({ allComics, fetchAllComics }) {
           </CardContent>
         </Card>
       ))}
+      {loadingMore &&
+        Array.from({ length: 5 }).map((_, index) => (
+          <CustomSkeleton key={index} />
+        ))}
       {/* <Footer/> */}
     </Box>
   );

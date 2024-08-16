@@ -1,20 +1,79 @@
 import React from "react";
-import Skeleton from "@mui/material/Skeleton";
-import Stack from "@mui/material/Stack";
-
+import { Box, Card, CardMedia, CardContent } from "@mui/material";
 function CustomSkeleton() {
   return (
     <div>
-      <Stack spacing={1}>
-        {/* For variant="text", adjust the height via font-size */}
-        <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
-        {/* For other variants, adjust the size with `width` and `height` */}
-        <Skeleton variant="circular" width={40} height={40} />
-        <Skeleton variant="rectangular" width={210} height={60} />
-        <Skeleton variant="rounded" width={210} height={60} />
-      </Stack>
+      <Card
+        sx={{
+          width: "100%",
+          maxWidth: "400px",
+          borderRadius: "0px",
+          boxShadow: "none",
+          backgroundColor: "white",
+          overflow: "hidden",
+          position: "relative",
+          marginBottom: "16px",
+        }}
+      >
+        <CardContent>
+          <Box
+            sx={{
+              bgcolor: "rgba(0,0,0,0.1)",
+              height: "40px",
+              width: "40px",
+              borderRadius: "50%",
+              mb: 1,
+              animation: "shimmer 1.5s infinite",
+              background:"rgb(232,232,232)"
+
+            }}
+          />
+          <Box
+            sx={{
+              bgcolor: "rgba(0,0,0,0.1)",
+              height: "20px",
+              width: "60%",
+              mb: 1,
+              borderRadius: "4px",
+              animation: "shimmer 1.5s infinite",
+              background:"rgb(232,232,232)"
+
+            }}
+          />
+          <Box
+            sx={{
+              bgcolor: "rgba(0,0,0,0.1)",
+              height: "20px",
+              width: "80%",
+              mb: 1,
+              borderRadius: "4px",
+              animation: "shimmer 1.5s infinite",
+              background:
+                "rgb(232,232,232)",
+            }}
+          />
+          <Box
+            sx={{
+              bgcolor: "rgba(0,0,0,0.1)",
+              height: "20px",
+              width: "50%",
+              borderRadius: "4px",
+              animation: "shimmer 1.5s infinite",
+              background:"rgb(232,232,232)"
+            }}
+          />
+        </CardContent>
+      </Card>
     </div>
   );
 }
-
 export default CustomSkeleton;
+
+
+
+
+
+
+
+
+
