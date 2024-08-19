@@ -352,7 +352,7 @@ import bagel from "../../assets/Images/CustomCardList/bagel.png";
 import Footer from "../Footer/Footer";
 import { useTheme, useMediaQuery } from "@mui/material";
 
-import CustomSkeleton from "../Skeleton/CustomSkeleton"
+import CustomSkeleton from "../Skeleton/CustomSkeleton";
 // Shimmer Overlay Component
 
 // Shimmer Animation CSS
@@ -669,15 +669,72 @@ function CustomCardList({ allComics, fetchAllComics }) {
                 <Typography variant="body2" sx={{ ml: 1 }}>
                   Share
                 </Typography>
+
+
+
+              {/* adding comment */}
+
+              
               </Box>
+              
             </Box>
+            <Divider />
+            <Typography
+              variant="body2"
+              sx={{
+                mt: 1,
+                fontWeight: 400,
+                color: "#626262",
+                fontSize: "16px",
+                lineHeight: "140%",
+              }}
+            >
+              See previous comments...
+            </Typography>
+
+            {/* //adding comment */}
+
+            <Card
+              style={{
+                display: "flex",
+                padding: "10px",
+                alignItems: "center",
+                boxShadow:"none"
+              }}
+            >
+              <Avatar
+                alt="Tinyview Admin"
+                src="/path_to_image"
+                style={{ width: 35, height: 35 }}
+              />
+              <Box
+                ml={2}
+                style={{
+                  flex: 1,
+                  borderRadius:"10px",
+                  backgroundColor: "rgb(223,246,236)",
+                  padding: "8px 16px",
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontWeight: 400,
+                    fontSize: "16px",
+                    color: "#626262",
+                    lineHeight: "140%",
+                  }}
+                >
+                  {card.comment}
+                </Typography>
+              </Box>
+            </Card>
+
           </CardContent>
         </Card>
       ))}
       {loadingMore &&
-        Array.from({ length: 5 }).map((_, index) => (
-          <CustomSkeleton key={index} />
-        ))}
+        [...Array(3)].map((index) => <CustomSkeleton key={index} />)}
       {/* <Footer/> */}
     </Box>
   );
